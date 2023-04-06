@@ -1,0 +1,5 @@
+InstagramAPI==1.0.2
+praw==7.4.0
+urllib3==1.26.7
+python-dotenv==0.19.1
+Pillow==9.0.0
