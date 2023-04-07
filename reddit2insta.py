@@ -1,12 +1,12 @@
-from InstagramAPI import InstagramAPI
 import praw
-import urllib
+import urllib.request
 import os
 import json
 import random
 import uuid
 from dotenv import load_dotenv
 from PIL import Image
+from instabot import Bot
 
 # Load credentials from .env file
 load_dotenv()
@@ -17,11 +17,11 @@ reddit_username = os.getenv("REDDIT_USERNAME")
 reddit_password = os.getenv("REDDIT_PASSWORD")
 reddit_user_agent = os.getenv("REDDIT_USER_AGENT")
 
-# Instagram credentials 2FA Should not be on or else  InstagramAPI will not be able to work 
+# Instagram credentials
 instagram_username = os.getenv("INSTA_USERNAME")
 instagram_password = os.getenv("INSTA_PASSWORD")
 
-# List of subreddits to scrape memes from Replace With subreddits you want to fetch the memes from you can add as many as you want 
+# List of subreddits to scrape memes from
 subreddits = ['subreddit1', 'subreddit2', 'subreddit3', 'subreddit4']
 
 # Creating Reddit instance here
@@ -37,11 +37,8 @@ for file_name in files:
         print(file_name) 
 
 # Creating Instagram instance here
-instagram = InstagramAPI(instagram_username, instagram_password)
-login = instagram.login()
-if not login:
-    print("Failed to log in to Instagram")
-    exit()
+bot = Bot()
+bot.login(username=instagram_username, password=instagram_password)
 
 # Load previously posted memes from JSON file
 if os.path.isfile("posted_memes.json"):
@@ -80,6 +77,7 @@ while True:
                     print(f"Unknown file extension, skipping: {post.title}")
                     continue
 
+
                 # Check image size and resize if necessary
                 with Image.open(image_path) as img:
                     width, height = img.size
@@ -95,7 +93,7 @@ while True:
 
                 # Post image to Instagram
                 try:
-                    instagram.uploadPhoto(image_path, caption=post.title)
+                    bot.upload_photo(image_path, caption=post.title)
                 except Exception as e:
                     print("Error posting to Instagram:", str(e))
                     continue
