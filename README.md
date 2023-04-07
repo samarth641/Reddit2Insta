@@ -1,6 +1,6 @@
 # Instagram Reddit Meme Bot
 
-This bot scrapes memes from random subreddits and posts them to Instagram. It uses PRAW to scrape memes from Reddit and InstagramAPI to post memes to Instagram. 
+This bot scrapes memes from random subreddits and posts them to Instagram. It uses PRAW to scrape memes from Reddit and instabot to post memes to Instagram. 
 
 ## Prerequisites
 
@@ -48,9 +48,22 @@ To change the subreddits that the bot scrapes memes from, edit the subreddits va
 
 ```python
 subreddits = ['subreddit1', 'subreddit2', 'subreddit3', 'subreddit']
-
 ```
 
+# Changing Square Background Colour (Optional)
+
+Read the reddit2insta.py file to modify the square background color used to make images comply with Instagram's picture rules. To alter the fill color to any RGB color, go to Line 51 where we define the function to generate a square. You can find the RGB color code for any color from [Here](https://htmlcolorcodes.com/color-picker/)
+  
+For example:
+
+```python
+def make_square(im, min_size=1080, fill_color=(0, 0, 0, 0)):
+```
+To 
+
+```python
+def make_square(im, min_size=1080, fill_color=(255, 255, 255, 0)):
+```
 6.  Run the bot: 
 
 ```python 
