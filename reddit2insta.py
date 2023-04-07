@@ -22,7 +22,7 @@ instagram_username = os.getenv("INSTA_USERNAME")
 instagram_password = os.getenv("INSTA_PASSWORD")
 
 # List of subreddits to scrape memes from Replace With subreddits you want to fetch the memes from you can add as many as you want 
-subreddits = ['subreddits1', 'subreddits2', 'subreddits3', 'subreddits4']
+subreddits = ['subreddit1', 'subreddit2', 'subreddit3', 'subreddit4']
 
 # Creating Reddit instance here
 reddit = praw.Reddit(client_id=reddit_client_id, client_secret=reddit_client_secret, username=reddit_username, password=reddit_password, user_agent=reddit_user_agent)

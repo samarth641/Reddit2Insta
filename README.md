@@ -47,7 +47,7 @@ INSTA_PASSWORD=<your_instagram_password>
 To change the subreddits that the bot scrapes memes from, edit the subreddits variable in the reddit2insta.py file. Add or remove subreddits as needed, and separate them by commas. For example:
 
 ```python
-subreddits = ['subreddits1', 'subreddits2', 'subreddits3', 'subreddits4']
+subreddits = ['subreddit1', 'subreddit2', 'subreddit3', 'subreddit4']
 ```
 
 6.  Run the bot: 
