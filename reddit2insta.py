@@ -49,7 +49,7 @@ else:
     posted_memes = []
 
 # Makes a squre Background in Black color if your want to change color of the square you can by Changing Fill color to any RGB Value 
-def make_square(im, min_size=1080, fill_color=(255, 255, 255, 0)):
+def make_square(im, min_size=1080, fill_color=(0, 0, 0, 0)):
     x, y = im.size
     print("Original size "+str(x)+" X "+str(y))
     size = max(min_size, x, y)
